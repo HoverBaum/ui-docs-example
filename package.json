@@ -50,7 +50,7 @@
     "clean": "rm -rf .next .contentlayer",
     "build:lib": "rimraf lib && node ./esbuild.js && npm run build:types",
     "build:types": " tsc --emitDeclarationOnly --project tsconfig.prod.json",
-    "build:docs": "cd propsDoc && npm ci && npm run build && cd .. && next build && next export -o docsBuild",
+    "build:docs": "next build && next export -o docsBuild",
     "release:dry": "npx semantic-release --dry-run",
     "release": "npx semantic-release",
     "commit": "npx commitlint",
