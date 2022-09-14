@@ -1,0 +1,75 @@
+{
+  "name": "@taxdoo/ui",
+  "version": "0.1.0",
+  "private": false,
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/react": "^1.0.0",
+    "@chakra-ui/system": "^1.0.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@fontsource/jost": "^4.5.4",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/gitlab": "9.3.2",
+    "@semantic-release/npm": "9.0.1",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/user-event": "^12.0.2",
+    "@types/jest": "^25.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "contentlayer": "0.2.4",
+    "framer-motion": "^4.0.0",
+    "husky": "^7.0.1",
+    "next": "^12.1.5",
+    "next-contentlayer": "0.2.4",
+    "prettier": "^2.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^3.0.0",
+    "react-live": "^3.1.0",
+    "react-scripts": "4.0.3",
+    "rimraf": "^2.7.1",
+    "semantic-release": "19.0.3",
+    "typescript": "^4.4.4",
+    "web-vitals": "^0.2.2"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "clean": "rm -rf .next .contentlayer",
+    "build:lib": "rimraf lib && node ./esbuild.js && npm run build:types",
+    "build:types": " tsc --emitDeclarationOnly --project tsconfig.prod.json",
+    "build:docs": "cd propsDoc && npm run build && cd .. && next build && next export -o docsBuild",
+    "release:dry": "npx semantic-release --dry-run",
+    "release": "npx semantic-release",
+    "commit": "npx commitlint",
+    "prepare": "npx husky install"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "packageManager": "npm"
+}

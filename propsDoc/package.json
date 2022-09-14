@@ -1,0 +1,15 @@
+{
+  "description": "Generate property documentation for TypeScript components.",
+  "scripts": {
+    "build": "rm -rf jsonProps && ts-node -T src/genPropDocs.ts"
+  },
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.1",
+    "react-docgen-typescript": "^2.2.2",
+    "ts-node": "^10.7.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13"
+  }
+}

@@ -1,0 +1,88 @@
+# Documenting Components
+
+To document your new component, all you need to do is add a `.mdx` page next to it.
+
+You component will automatically be available in the scope of mdx files after being added to the exports of the library.
+
+## Conventions
+
+By default your page should be built up using the following sections:
+
+- **Intro** talk about the component and its purpose, help people think about this component.
+- **Usage** gives examples of common usages for your component. Include at least an example with the minimum amount of props needed to use the component.
+- **Figma** link to related Figma files so that we can easily check that implementation and design are the same.
+- **Props** finally, have a table with all of your components props so users know how they can adopt it.
+
+## Editable preview
+
+You can use ` ```jsx` blocks to document and preview your code at the same time.
+
+```
+```jsx
+<Button>Click</Button>
+```
+
+Will produce:
+
+```jsx
+<Button>Click</Button>
+```
+
+### Limitations
+
+Inside a `jsx` code block there needs to be a single parent component.
+
+You can use a [fragment](https://reactjs.org/docs/fragments.html) `<> /* Code here */ </>` to wrap your code.
+
+### Stateful components
+
+If you need state management to demo your component you can wrap it in an anonymous function to do so.
+
+```jsx
+() => {
+  const [count, setCount] = useState(0)
+  return (
+    <Button onClick={() => setCount(current => current += 1)}>
+      {count}
+    </Button>
+  );
+}
+```
+
+## Props
+
+On a components documentation page you can add a list of all it's properties using the `<PropsTable of="ComponentName" />` component.
+
+>This requires your component to use named exports!
+
+Simply pass in the name of your component and the list will be generated. To enable this you need to run and locally update the generation script for props documentation.
+
+```bash
+cd propsDoc && npm run build && cd ..
+```
+
+**Descriptions**, for properties to have descriptions, you need to add them via JS-docs `/** description */`.
+
+Under the hood this uses [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript) to generate a JSON file with props definitions for each components. They are than exposed through a TypeScript file with typings. Preferrably we would also do this via contentlayer but TypeScript or Plaintext files are currently not supported.
+
+## Figma
+
+When documenting the implementation of components designed in Figma you can provide a link to Figma. It will be replaced by an embed of the Figma file. Please note that this needs to be a markdown link, use that chance to describe what you are linking to for readers of the makrdown file.
+
+In Figma, select the area you are interested im embedding and right-click it. Now select "Copy/Paste as" and then "Copy link".
+
+[Figma](https://www.figma.com/file/HRwNZH1zvPJTsza8M3xEtM/Figma-Basics?node-id=0%3A286)
+
+```md
+[Figma](https://www.figma.com/path/name?node-id=id)
+```
+
+## Callout blocks
+
+You can use quotes in markdown to create callout blocks. 
+
+> Callout content
+
+```
+> Callout content
+```

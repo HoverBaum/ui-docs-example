@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "rootDir": "./lib-src",
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "lib",
+    "skipLibCheck": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "lib-src"
+  ],
+  "exclude": [
+    "etc/",
+    "stack/",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}
