@@ -8,6 +8,8 @@ This repository uses `npm` and [Conventional Commits](https://www.conventionalco
 
 ## Automated Releases
 
+This repo comes witha basic setup for conventional commits.
+
 ### Commit message format
 
 Homepage: https://www.conventionalcommits.org/
